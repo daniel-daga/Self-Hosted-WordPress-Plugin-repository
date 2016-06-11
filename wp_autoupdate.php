@@ -131,7 +131,7 @@ class WP_AutoUpdate
 		
 		// Check if response is valid
 		if ( !is_wp_error( $request ) || wp_remote_retrieve_response_code( $request ) === 200 ) {
-			return @unserialize( $request['body'] );
+			return @json_decode( $request['body'] );
 		}
 		
 		return false;
